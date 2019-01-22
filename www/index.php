@@ -19,8 +19,39 @@ $uri = explode('?', $uri);
 
 switch ($uri[0]) {
 	case '':
-		include "modules/main/index.php";
+		require ROOT . "modules/main/index.php";
 		break;
+		
+// ::::::::::::::::::::: USERS :::::::::::::::::::::
+
+	case 'login':
+		require ROOT . "modules/login/login.php";
+		break;
+
+	case 'registration':
+		include ROOT . "modules/login/registration.php";
+		break;
+
+	case 'logout':
+		include ROOT . "modules/login/loguot.php";
+		break;
+
+	case 'lost-password':
+		include ROOT . "modules/login/lost-password.php";
+		break;
+
+	case 'set-new-password':
+		include ROOT . "modules/login/set-new-password.php";
+		break;
+
+	case 'profile':
+		include ROOT . "modules/profile/index.php";
+		break;
+
+	case 'profile-edit':
+		include ROOT . "modules/profile/edit.php";
+		break;
+
 	case 'about':
 		include "modules/about/index.php";
 		break;

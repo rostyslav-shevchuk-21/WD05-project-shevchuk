@@ -1,0 +1,31 @@
+extends ../layouts/page-layout/page.pug
+
+block variables
+    - var title = 'Блог-Пост';
+    - var pageClass = 'content-page';
+
+block content
+    .sticky-footer-wrapper
+        include ../sections/admin-panel.pug
+        include ../sections/header-admin.pug
+
+        .sticky-footer-content
+            .container.user-content.pt-70.make-relative
+                .row
+                    .col-10.offset-1
+
+                        div.blog__button--edit
+                            +buttonEdit('Редактировать', '', '', 'submit', 'name')
+
+                        include ../sections/blog-post.pug
+
+                        div.blog__buttons.mt-30.mb-35
+                            +buttonBackward('Назад', '#!')
+                            +buttonForward('Вперед', '#!')
+
+                        include ../sections/two-comments.pug
+
+                        div.comment.mt-35.mb-120
+                            include ../sections/leave-comment.pug
+
+        include ../sections/footer.pug
