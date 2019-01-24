@@ -13,7 +13,7 @@ if (isset($_POST['register']) ) {
 
 
 	// Проверка что пользователь уже существует
-	if (R::count('user', 'email = ?', array($_POST['email']) ) > 0 ) {
+	if (R::count('users', 'email = ?', array($_POST['email']) ) > 0 ) {
 		$errors[] = [
 						'title' => 'Пользователь с таким email уже зарегистрирован',
 						'desc' => 'Используйте другой email адрес, или воспользуйтесь восстановлением пароля',
@@ -22,10 +22,20 @@ if (isset($_POST['register']) ) {
 
 	if ( empty($errors) ) {
 		// Alright, Register!
-		$user = R::dispense('user');
+		$user = R::dispense('users');
 		$user->email = htmlentities($_POST['email']);
+		$user->role = 'user';
 		$user->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 		R::store($user);
+		
+		$_SESSION['logged_user'] = $user;
+		$_SESSION['login'] = "1";
+		$_SESSION['role'] = $user->role;
+
+		// header('Location: ' . HOST . "profile-edit");
+		header('Location: ' . HOST . "/");
+		exit();
+
 	}
 
 

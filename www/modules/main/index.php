@@ -1,5 +1,7 @@
 <?php 
 
+echo "Привет! Это главная страница сайта!";
+
 // $details = R::find('about', 1);
 // // print_r($details);
 
@@ -11,7 +13,7 @@
 
 // Готовим контент для центральной части
 ob_start();
-include ROOT . "templates/main/main.tpl";
+include ROOT . "templates/_parts/_header.tpl";
 $content = ob_get_contents();
 ob_end_clean();
 
