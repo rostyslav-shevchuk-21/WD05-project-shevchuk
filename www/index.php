@@ -1,8 +1,18 @@
 <?php  
 
-require "config.php";
-require "db.php";
+// Хост сайта
+define('HOST', 'http://' . $_SERVER['HTTP_HOST'] . '/');
 
+// Физический путь к корневой директории скрипта
+define('ROOT', dirname(__FILE__).'/');
+
+$errors = array();
+
+require ROOT . "config.php";
+require ROOT . "db.php";
+require ROOT . "libs/functions.php";
+
+session_start();
 
 /*-------------------------------------------------
 

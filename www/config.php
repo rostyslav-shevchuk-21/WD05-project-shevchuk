@@ -6,10 +6,9 @@ define('DB_NAME', 'WD05-project-shevchuk');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 
-// Хост сайта
-define('HOST', $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] .'/');
-	
-// Физический путь к корневой директории скрипта
-define('ROOT', dirname(__FILE__).'/');
+// SITE SETTINGS FOR EMAILS
+define('SITE_NAME', 'Сайт портфолио - WebDev05');
+define('SITE_EMAIL', 'info@webdev05.com');
+define('ADMIN_EMAIL', 'info@shevchukwd05.com');
 
 ?>

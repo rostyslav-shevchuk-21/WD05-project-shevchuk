@@ -1,0 +1,9 @@
+.notification__error--texthidden {
+	display: none;
+}
+
+.notification__error--textsmall {
+  background-color: transparent;
+  padding: 26px 16px 16px;
+  margin-bottom: 15px;
+}
