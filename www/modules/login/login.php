@@ -1,5 +1,7 @@
 <?php
 
+$title = "Вход на сайт";
+
 if ( isset($_POST['login']) ) {
 	
 	if (trim($_POST['email']) == '' ) {
@@ -38,6 +40,9 @@ include ROOT . "templates/login/form-login.tpl";
 $content = ob_get_contents();
 ob_end_clean();
 
+include ROOT . "templates/_parts/_head.tpl";
 include ROOT . "templates/login/login-page.tpl";
+include ROOT . "templates/_parts/_foot.tpl";
+
 
 ?>

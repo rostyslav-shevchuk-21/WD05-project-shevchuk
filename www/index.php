@@ -43,7 +43,7 @@ switch ($uri[0]) {
 		break;
 
 	case 'logout':
-		include ROOT . "modules/login/loguot.php";
+		include ROOT . "modules/login/logout.php";
 		break;
 
 	case 'lost-password':
