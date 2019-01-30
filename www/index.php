@@ -63,6 +63,12 @@ switch ($uri[0]) {
 	case 'profile-edit':
 		include ROOT . "modules/profile/edit.php";
 		break;
+
+// ::::::::::::::::::::: BLOG :::::::::::::::::::::
+
+	case 'blog':
+		include ROOT . "modules/blog/index.php";
+		break;
 	
 	default:
 		include "modules/main/index.php";
