@@ -1,11 +1,35 @@
-mixin loadFile(title, opis, type)
-	if type
+mixin loadFile(title, opis, type, image)
+	if type && image 
 		.load-file-title #{title}		
 		.load-file-opis #{opis}
 		.load-file-fieldset
 			input#file.inputfile.inputfile-rad(type='file', name='file', data-multiple-caption='{count} файлов выбрано', multiple='')
 			label(for='file') Выбрать файл
 			span Файл не выбран
+		.load-file-wrap
+			.load-file-wrap-img
+				img(src="../img/uploadfiles/loadfile.jpg", alt="foto").load-file-wrap-img__image
+			.load-file-wrap__button
+				+buttonDelete('Удалить', '#!', 'small')
+	else if type
+		.load-file-title #{title}		
+		.load-file-opis #{opis}
+		.load-file-fieldset
+			input#file.inputfile.inputfile-rad(type='file', name='file', data-multiple-caption='{count} файлов выбрано', multiple='')
+			label(for='file') Выбрать файл
+			span Файл не выбран
+	else if image
+		.load-file-title #{title}		
+		.load-file-opis #{opis}
+		.load-file-fieldset
+			input#file-2.inputfile(type='file', name='file-2', data-multiple-caption='{count} файлов выбрано',multiple='')
+			label(for='file-2') Выбрать файл
+			span Файл не выбран
+		.load-file-wrap
+			.load-file-wrap-img
+				img(src="../img/uploadfiles/loadfile.jpg", alt="foto").load-file-wrap-img__image
+			.load-file-wrap__button
+				+buttonDelete('Удалить', '#!', 'small')
 	else
 		.load-file-title #{title}		
 		.load-file-opis #{opis}
