@@ -37,8 +37,8 @@
 						<div class="form-button-save">
 							<input class="button button-save" type="submit" value="Сохранить" name="profile-update" />
 						</div>
-						<div class="form-button-cancel">
-							<button class="button" type="reset" name="profile-reset"> Отмена</button>
+						<div class="button form-button-cancel">
+							<a class="link-decoration" href="<?=HOST?>profile" name="profile-reset"> Отмена</a>
 						</div>
 					</div>
 				</form>

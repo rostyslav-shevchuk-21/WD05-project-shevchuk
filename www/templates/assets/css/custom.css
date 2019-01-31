@@ -15,3 +15,7 @@
 .profile--jcsb{
 	justify-content: space-between;
 }
+
+.link-decoration {
+	text-decoration: none;
+}
