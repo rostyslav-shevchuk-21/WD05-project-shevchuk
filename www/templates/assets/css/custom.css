@@ -11,3 +11,7 @@
 .navigation__link--active {
 	text-decoration: none;
 }
+
+.profile--jcsb{
+	justify-content: space-between;
+}

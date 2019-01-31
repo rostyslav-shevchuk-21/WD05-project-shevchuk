@@ -1,10 +1,12 @@
 <div class="sticky-footer-content">
 	<div class="container user-content pt-50 pb-120 relative">
-		<div class="profile__button"><a class="button button-edit" href="<?=HOST?>profile-edit">Редактировать</a></div>
 		<div class="row">
 			<div class="col-md-10 offset-md-1">
-				<div class="profile">
+				<div class="profile profile--jcsb ">
 					<div class="title-1 profile__title">Профиль</div>
+					<div>
+						<a class="button button-edit" href="<?=HOST?>profile-edit">Редактировать</a>
+					</div>
 				</div>
 				<div class="profile-user">
 					<div class="profile-user__avatar">
@@ -17,7 +19,7 @@
 					<div class="profile-user-description"><span>Имя и фамилия</span>
 						<div class="profile-user-description__title"><?=$currentUser->name?> <?=$currentUser->surname?></div><span>Email</span>
 						<div class="profile-user-description__email"><?=$currentUser->email?></div><span>Страна, Город</span>
-						<div class="profile-user-description__city"><?=$currentUser->country?> <?=$currentUser->city?></div>
+						<div class="profile-user-description__city"><?=$currentUser->country?>, <?=$currentUser->city?></div>
 					</div>
 				</div>
 				<h2 class="title-2">Комментарии пользователя</h2>

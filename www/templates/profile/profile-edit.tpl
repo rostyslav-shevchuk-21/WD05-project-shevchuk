@@ -18,7 +18,7 @@
 						<div class="col-md-4"><label class="label">Фамилия<input class="input-text" type="text" placeholder="Введите фамилию" name="surname" value="<?=$currentUser->surname?>" /></label></div>
 					</div>
 					<div class="row edit-user-profile-form__row">
-						<div class="col-md-4"><label class="label">Email<input class="input-text" type="text" placeholder="Введите email" name="email" value="<?=$currentUser->email?>" /></label></div>
+						<div class="col-md-4"><label class="label">Email<input class="input-text" type="email" placeholder="Введите email" name="email" value="<?=$currentUser->email?>" /></label></div>
 					</div>
 					<div class="row edit-user-profile-form__row">
 						<div class="col-md-9">
