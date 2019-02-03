@@ -8,6 +8,8 @@
 	<?php } ?>		
 
 	</div>
-	<div class="card-post__title"><?=$post->title?></div>
+	<div class="card-post__title">
+		<?=mbCutString($post->title, 43)?>
+	</div>
 	<a class="button" href="#!">Читать</a>
 </div>
