@@ -11,5 +11,5 @@
 	<div class="card-post__title">
 		<?=mbCutString($post->title, 43)?>
 	</div>
-	<a class="button" href="#!">Читать</a>
+	<a class="button" href="<?=HOST?>blog/post?id=<?=$post->id?>">Читать</a>
 </div>

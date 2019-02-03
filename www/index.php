@@ -34,7 +34,7 @@ switch ($uri[0]) {
 		require ROOT . "modules/main/index.php";
 		break;
 		
-// ::::::::::::::::::::: USERS :::::::::::::::::::::
+// ::::::::::::::::::: USERS ::::::::::::::::::::
 
 	case 'login':
 		require ROOT . "modules/login/login.php";
@@ -73,7 +73,13 @@ switch ($uri[0]) {
 	case 'blog/post-new':
 		include ROOT . "modules/blog/post-new.php";
 		break;
+
+	case 'blog/post':
+		include ROOT . "modules/blog/post.php";
+		break;
 	
+// ::::::::::::::::: MAIN / OTHER :::::::::::::::::
+
 	default:
 		include "modules/main/index.php";
 		break;
