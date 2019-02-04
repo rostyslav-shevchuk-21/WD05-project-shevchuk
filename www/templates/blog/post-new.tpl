@@ -39,7 +39,7 @@ echo "</pre>";
 					<div class="post-add-form-button">
 						<input class="button button-save" type="submit" value="Сохранить" name="postNew" />
 						<div class="button post-add-form-button__cancel">
-							<a class="link-decoration" href="<?HOST?>blog">Отмена</a>
+							<a class="link-decoration" href="<?=HOST?>blog">Отмена</a>
 						</div>
 					</div>
 				</form>
