@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Час створення: Лют 03 2019 р., 22:31
+-- Час створення: Лют 06 2019 р., 01:23
 -- Версія сервера: 5.7.16
 -- Версія PHP: 7.1.0
 
@@ -38,6 +38,27 @@ CREATE TABLE `about` (
 
 INSERT INTO `about` (`id`, `name`, `description`) VALUES
 (1, 'Ростислав Шевчук', 'Я веб-разработчик.');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблиці `categories`
+--
+
+CREATE TABLE `categories` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `cat_title` varchar(191) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+
+--
+-- Дамп даних таблиці `categories`
+--
+
+INSERT INTO `categories` (`id`, `cat_title`) VALUES
+(1, 'Гаджеты'),
+(2, 'Лучшая практика'),
+(3, 'Новости IT'),
+(4, 'Флешмоб');
 
 -- --------------------------------------------------------
 
@@ -108,6 +129,12 @@ ALTER TABLE `about`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Індекси таблиці `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Індекси таблиці `posts`
 --
 ALTER TABLE `posts`
@@ -130,10 +157,15 @@ ALTER TABLE `users`
 ALTER TABLE `about`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT для таблиці `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
 -- AUTO_INCREMENT для таблиці `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT для таблиці `users`
 --

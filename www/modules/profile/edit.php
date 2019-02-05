@@ -1,7 +1,7 @@
 <?php
 
 $title = "Редактировать профиль";
-
+$pattern = '/^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z{2,4}\.])?[a-z]{2,4}$/i';
 $currentUser = $_SESSION['logged_user'];
 $user = R::load('users', $currentUser->id);
 
@@ -17,7 +17,14 @@ if ( isset($_POST['profile-update']) ) {
 
 	if ( trim($_POST['email']) == '') {
 		$errors[] = ['title' => 'Введите email'];
+	} else {
+		if (!preg_match($pattern, $_POST['email'])) {
+			$errors[] = ['title' => 'Неверный формат email'];
+		}
 	}
+
+
+
 
 	if ( empty($errors) ) {
 		
