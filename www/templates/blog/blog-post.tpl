@@ -19,16 +19,16 @@
 						</div>
 					</div>
 						<div class="blog-post__info">
-							<div class="blog-post__info-name">Емельян Казаков</div>
-							<div class="blog-post__info-category"><a href="#!">Путешествия</a></div>
+							<div class="blog-post__info-name"><?=$post['name']?> <?=$post['surname']?></div>
+							<div class="blog-post__info-category"><a href="#!"><?=$post['cat_title']?></a></div>
 							<div class="blog-post__info-date"><? echo rus_date("j F Y H:i", strtotime($post['date_time']) )?></div>
 							<div class="blog-post__info-comment-count"><a href="#!">2 комментария</a></div>
 						</div>
 
-					<?php if ($post->post_img !="") { ?>
-						<img class="blog-post__image" src="<?=HOST?>usercontent/blog/<?=$post->post_img?>" alt="<?=$post->title?>" />
+					<?php if ($post['post_img'] !="") { ?>
+						<img class="blog-post__image" src="<?=HOST?>usercontent/blog/<?=$post['post_img']?>" alt="<?=$post['title']?>" />
 					<?php }  else { ?>		
-						<img class="blog-post__image" src="<?=HOST?>usercontent/blog-no-image-big.jpg" alt="<?=$post->title?>" />
+						<img class="blog-post__image" src="<?=HOST?>usercontent/blog-no-image-big.jpg" alt="<?=$post['title']?>" />
 					<?php } ?>
 
 					<div class="blog-post__content"><?=$post['text']?></div>
