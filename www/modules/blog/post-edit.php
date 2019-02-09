@@ -5,7 +5,7 @@ $post = R::load('posts', $_GET['id']);
 
 $cats = R::find('categories', 'ORDER BY cat_title ASC');
 
-if ( isset($_POST['postNew']) ) {
+if ( isset($_POST['postUpdate']) ) {
 	
 	if ( trim($_POST['postTitle']) == '' ) {
 		$errors[] = ['title' => 'Введите название поста'];
@@ -16,12 +16,11 @@ if ( isset($_POST['postNew']) ) {
 	}
 
 	if ( empty($errors)) {
-		$post = R::dispense('posts');
 		$post->title = htmlentities($_POST['postTitle']);
 		$post->cat = htmlentities($_POST['postCat']);
 		$post->text = $_POST['postText'];
 		$post->authorId = $_SESSION['logged_user']['id'];
-		$post->dateTime = R::isoDateTime();
+		$post->updateTime = R::isoDateTime();
 
 		if ( isset($_FILES["postImg"]["name"]) && $_FILES["postImg"]["tmp_name"] != "" ) {
 			
@@ -51,12 +50,23 @@ if ( isset($_POST['postNew']) ) {
 			if ( $fileErrorMsg == 1 ) {
 				$errors[] = ['title' => 'При загрузке изображения произошла ошибка. Повторите попытку' ];
 			}
-
 			// Перемещаем загруженный файл в нужную директорию
 			$db_file_name = rand(100000000000,999999999999) . "." . $fileExt;
 			$postImgFolderLocation = ROOT . 'usercontent/blog/';
 			$uploadfile = $postImgFolderLocation . $db_file_name;
 			$moveResult = move_uploaded_file($fileTmpLoc, $uploadfile);
+
+			// Если картинка поста установлена, тоесть загружена ранее то удаляем файл картинки
+			$postImg = $post->post_img;
+			if ( $postImg != "" ) {
+				$picurl = $postImgFolderLocation . $postImg;
+				// Удаляем картинку
+				// die($picurl); 
+			    if ( file_exists($picurl) ) { unlink($picurl); }
+				$picurl320 = $postImgFolderLocation . '320-' . $postImg;
+			    if ( file_exists($picurl320) ) { unlink($picurl320); }
+			}
+
 
 			if ($moveResult != true) {
 				$errors[] = ['title' => 'Ошибка сохранения файла' ];

@@ -16,7 +16,7 @@
 
 				<?php require ROOT . "templates/_parts/_erorrs.tpl" ?>
 
-				<form class="post-add-form" action="<?=HOST?>blog/post-new" method="POST" enctype="multipart/form-data">
+				<form class="post-add-form" action="<?=HOST?>blog/post-edit?id=<?=$post['id']?>" method="POST" enctype="multipart/form-data">
 					<div class="post-add-form__name">
 						<label class="label">Название
 							<input class="input-text" type="text" placeholder="Введите название" name="postTitle" value="<?=$post['title']?>" />
@@ -45,15 +45,33 @@
 							<input class="inputfile" id="file-2" type="file" name="postImg" data-multiple-caption="{count} файлов выбрано" multiple="" />
 							<label for="file-2">Выбрать файл</label>
 							<span>Файл не выбран</span>
+							<?php if ( $post['post_img_small'] !="") { ?>
+								<div class="load-file-wrap mt-20">
+									<div class="load-file-wrap-img">
+									
+										<img 
+											class="load-file-wrap-img__image" 
+											src="<?=HOST?>usercontent/blog/<?=$post['post_img_small']?>" 
+											alt="foto" />
+										<div class="load-file-wrap__button">
+											<a class="button button-delete button-small" href="#!">Удалить</a>
+										</div>
+									</div>
+								</div>
+							<?php } ?>	
 						</div>
 					</div>
+
+
+
+
 					<div class="post-add-form__textarea">
 						<label class="label">Содержание
 							<textarea class="textarea" type="text" placeholder="Введите описание" name="postText"><?=$post['text']?></textarea>
 						</label>
 					</div>
 					<div class="post-add-form-button">
-						<input class="button button-save" type="submit" value="Сохранить" name="postNew" />
+						<input class="button button-save" type="submit" value="Сохранить" name="postUpdate" />
 						<div class="button post-add-form-button__cancel">
 							<a class="link-decoration" href="<?=HOST?>blog">Отмена</a>
 						</div>

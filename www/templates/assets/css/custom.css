@@ -25,3 +25,14 @@
 	justify-content: space-between;
 	align-items: baseline;
 } 
+
+.load-file-wrap-img {
+	position: relative;
+}
+
+.load-file-wrap__button {
+    position: absolute;
+    left: 210px;
+    bottom: 10px;
+}
+">
