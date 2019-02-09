@@ -9,7 +9,7 @@
 
 	</div>
 	<div class="card-post__title">
-		<?=mbCutString($post->title, 43)?>
+		<?=mbCutString($post->title, 38)?>
 	</div>
 	<a class="button" href="<?=HOST?>blog/post?id=<?=$post->id?>">Читать</a>
 </div>
