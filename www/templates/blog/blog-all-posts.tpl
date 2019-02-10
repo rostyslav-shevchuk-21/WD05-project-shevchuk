@@ -12,7 +12,7 @@
 			<span>Блог веб-разработчика</span>
 			<div class="profile__button"><a class="button button-edit" href="<?=HOST?>blog/post-new">Добавить пост</a></div>
 		</div>
-		<div class="row justify-content-between mb-50">
+		<div class="row justify-content-fs mb-50">
 			
 			<?php foreach ($posts as $post) { ?>
 				

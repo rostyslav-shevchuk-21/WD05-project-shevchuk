@@ -66,9 +66,9 @@
 
 
 					<div class="post-add-form__textarea">
-						<label class="label">Содержание
-							<textarea class="textarea" type="text" placeholder="Введите описание" name="postText"><?=$post['text']?></textarea>
-						</label>
+						<div class="load-file-title">Содержание</div>
+							<textarea class="textarea" id="ckEditor" type="text" placeholder="Введите описание" name="postText"><?=$post['text']?></textarea>
+							<?php include_once ROOT . "templates/_parts/_ckEditorConnect.tpl" ?>
 					</div>
 					<div class="post-add-form-button">
 						<input class="button button-save" type="submit" value="Сохранить" name="postUpdate" />
@@ -81,3 +81,5 @@
 		</div>
 	</div>
 </div>
+
+

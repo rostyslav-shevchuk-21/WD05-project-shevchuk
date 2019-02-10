@@ -35,4 +35,7 @@
     left: 210px;
     bottom: 10px;
 }
-">
+
+.justify-content-fs {
+	justify-content: flex-start;
+}

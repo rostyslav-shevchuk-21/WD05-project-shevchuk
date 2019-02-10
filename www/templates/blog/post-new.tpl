@@ -43,9 +43,9 @@
 						</div>
 					</div>
 					<div class="post-add-form__textarea">
-						<label class="label">Содержание
-							<textarea class="textarea" type="text" placeholder="Введите описание" name="postText"></textarea>
-						</label>
+						<div class="load-file-title">Содержание</div>
+							<textarea id="ckEditor"  class="textarea" type="text" placeholder="Введите описание" name="postText"></textarea>
+							<?php include_once ROOT . "templates/_parts/_ckEditorConnect.tpl" ?>
 					</div>
 					<div class="post-add-form-button">
 						<input class="button button-save" type="submit" value="Сохранить" name="postNew" />
