@@ -8,9 +8,20 @@
 
 <div class="sticky-footer-content">
 	<div class="container user-content pt-80 relative">
+				
+				<?php
+
+					if ( isset($_GET['result']) ) {
+						include ROOT . "templates/blog/_results.tpl";
+					}
+
+				?>
+
 		<div class="blog__header mb-50">
 			<span>Блог веб-разработчика</span>
-			<div class="profile__button"><a class="button button-edit" href="<?=HOST?>blog/post-new">Добавить пост</a></div>
+			<div>
+				<a class="button button-edit" href="<?=HOST?>blog/post-new">Добавить пост</a>
+			</div>
 		</div>
 		<div class="row justify-content-fs mb-50">
 			

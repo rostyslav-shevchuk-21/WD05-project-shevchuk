@@ -16,6 +16,7 @@
 						<div class="blog-post-heading-wrapper__button">
 							<h1 class="blog-post__title title-1"><?=$post['title']?></h1>
 							<a class="button button-edit" href="<?=HOST?>blog/post-edit?id=<?=$post['id']?>">Редактировать</a>
+							<a class="button button-delete" href="<?=HOST?>blog/post-delete?id=<?=$post['id']?>">Удалить</a>
 						</div>
 					</div>
 						<div class="blog-post__info">
