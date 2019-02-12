@@ -13,10 +13,15 @@
 			<div class="col-10 offset-1">
 				<div class="blog-post">
 					<div class="blog-post-heading-wrapper">
-						<div class="blog-post-heading-wrapper__button">
+						<div>
 							<h1 class="blog-post__title title-1"><?=$post['title']?></h1>
-							<a class="button button-edit" href="<?=HOST?>blog/post-edit?id=<?=$post['id']?>">Редактировать</a>
-							<a class="button button-delete" href="<?=HOST?>blog/post-delete?id=<?=$post['id']?>">Удалить</a>
+						</div>
+						<div class="blog-post-heading-wrapper__link">
+							<?php if ( isAdmin() ) { ?>
+								<a class="button button-edit" href="<?=HOST?>blog/post-edit?id=<?=$post['id']?>">Редактировать</a>
+								<a class="button button-delete" href="<?=HOST?>blog/post-delete?id=<?=$post['id']?>">Удалить</a>
+							<?php } ?>
+
 						</div>
 					</div>
 						<div class="blog-post__info">
@@ -28,8 +33,6 @@
 
 					<?php if ($post['post_img'] !="") { ?>
 						<img class="blog-post__image" src="<?=HOST?>usercontent/blog/<?=$post['post_img']?>" alt="<?=$post['title']?>" />
-					<?php }  else { ?>		
-						<img class="blog-post__image" src="<?=HOST?>usercontent/blog-no-image-big.jpg" alt="<?=$post['title']?>" />
 					<?php } ?>
 
 					<div class="blog-post__content"><?=$post['text']?></div>

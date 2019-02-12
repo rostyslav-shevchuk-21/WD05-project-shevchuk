@@ -20,11 +20,17 @@
 	text-decoration: none;
 }
 
- .blog-post-heading-wrapper__button {
+ .blog-post-heading-wrapper {
 	display: flex;
 	justify-content: space-between;
 	align-items: baseline;
 } 
+
+.blog-post-heading-wrapper__link {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
 
 .load-file-wrap-img {
 	position: relative;

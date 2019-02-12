@@ -1,5 +1,10 @@
 <?php 
 
+if ( !isAdmin() ) {
+	header("Location: " . HOST);
+	die();
+}
+
 $title = "Редактировать пост";
 $post = R::load('posts', $_GET['id']);
 
@@ -92,7 +97,7 @@ if ( isset($_POST['postUpdate']) ) {
 		}
 
 		R::store($post);
-		header('Location: ' . HOST . "blog");
+		header('Location: ' . HOST . "blog?result=postUpdated");
 		exit();
 
 	}

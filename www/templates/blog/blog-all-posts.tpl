@@ -19,9 +19,15 @@
 
 		<div class="blog__header mb-50">
 			<span>Блог веб-разработчика</span>
-			<div>
-				<a class="button button-edit" href="<?=HOST?>blog/post-new">Добавить пост</a>
-			</div>
+			
+
+			<?php if ( isAdmin() ) { ?>
+				<div>
+					<a class="button button-edit" href="<?=HOST?>blog/post-new">Добавить пост</a>
+				</div>
+			<?php } ?>
+
+
 		</div>
 		<div class="row justify-content-fs mb-50">
 			
