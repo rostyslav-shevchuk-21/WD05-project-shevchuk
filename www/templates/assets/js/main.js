@@ -10,6 +10,21 @@ $(document).ready(function() {
 	$('[data-notify-hide]').dblclick(function(){
 		$(this).slideUp(400);
 	});
+
+	// ----- check comment form ----- //
+	$('input[data-add-comment]').on('click', function(e){
+		e.preventDefault();
+		comment = $('.comment-add-block__text').children('.textarea');
+		if ( comment.val() == '' ) {
+			$('.notification__error[data-error-comment-empty]').fadeIn();
+			comment.focus(function(event) {
+				$('.notification__error[data-error-comment-empty]').fadeOut();
+			});
+		} else {
+			$('#commentForm').submit();
+		}
+	});
+
 	
 });
 

@@ -45,3 +45,13 @@
 .justify-content-fs {
 	justify-content: flex-start;
 }
+
+.avatar--placeholder {
+	background-image: url("../img/avatars/user-avatar-placeholder-small.jpg");
+	background-repeat: no-repeat;	
+	background-size: cover;
+}
+
+.avatar {
+	background-size: cover;
+} 
