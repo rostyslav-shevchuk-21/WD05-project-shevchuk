@@ -5,7 +5,7 @@
 
 // $post = R::findOne('posts', 'id = ?', array($_GET['id']) );
 
-$sql = '
+$sqlPost = '
 	SELECT
 		posts.id, posts.title, posts.text, posts.post_img, posts.date_time, posts.author_id, posts.cat, 
     	users.name, users.surname,
@@ -15,13 +15,23 @@ $sql = '
 	INNER JOIN users ON posts.author_id = users.id
 	WHERE posts.id = ' . $_GET['id'] . ' LIMIT 1';
 
-$post = R::getAll( $sql );
+$post = R::getAll( $sqlPost );
 $post = $post[0];
 
 // echo "<pre>";
 // print_r($post);
 // echo "</pre>";
 // die;
+
+$sqlComments = 'SELECT
+			comments.text, comments.date_time, comments.user_id,
+			users.name, users.surname, users.avatar_small
+		FROM comments
+		INNER JOIN users ON comments.user_id = users.id
+		WHERE comments.post_id = ' . $_GET['id'];
+
+$comments = R::getAll( $sqlComments );
+
 
 $title = $post['title'];
 
@@ -37,6 +47,7 @@ if ( isset($_POST['addComment']) ) {
 		$comment->text = htmlentities($_POST['commentText']);
 		$comment->dateTime = R::isoDateTime();
 		R::store($comment);
+		$comments = R::getAll( $sqlComments );
 		// header('Location: ' . HOST ."blog/post?id=" . $_GET['id']);
 		// exit();
 	}
