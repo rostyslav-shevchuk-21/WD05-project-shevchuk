@@ -17,7 +17,18 @@ if ( isset($_POST['postUpdate']) ) {
 	}
 
 	if ( trim($_POST['postText']) == '' ) {
-		$errors[] = ['text' => 'Введите текст поста' ];
+		$errors[] = ['title' => 'Введите текст поста' ];
+	}
+
+	if (isset($_FILES["postImg"]["name"]) && $_FILES["postImg"]["tmp_name"] != "" ) {
+	$fileName = $_FILES["postImg"]["name"];
+	
+		// Проверяем на коректность формата файла
+		if ( !preg_match("/\.(gif|jpg|jpeg|png)$/i", $fileName) ) {
+			
+			// Если формат не верный выводим ошибки
+			$errors[]  = [ 'title' => 'Неверный формат файла', 'desc' => '<p>Файл изображения должен быть в формате gif, jpg, jpeg, или png.</p>', ];
+		} 
 	}
 
 	if ( empty($errors)) {
@@ -46,10 +57,6 @@ if ( isset($_POST['postUpdate']) ) {
 
 			if ( $fileSize > 4194304 ) {
 				$errors[] = ['title' => 'Файл изображения не должен быть более 4 Mb' ];
-			}
-
-			if ( !preg_match("/\.(gif|jpg|jpeg|png)$/i", $fileName) ) {
-				$errors[]  = [ 'title' => 'Неверный формат файла', 'desc' => '<p>Файл изображения должен быть в формате gif, jpg, jpeg, или png.</p>', ];
 			}
 
 			if ( $fileErrorMsg == 1 ) {

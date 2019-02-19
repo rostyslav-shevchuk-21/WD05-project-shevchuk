@@ -12,7 +12,7 @@ $cat = R::load('categories', $_GET['id']);
 if ( isset($_POST['catEdit']) ) {
 	
 	if (trim($_POST['catTitle']) == '' ) {
-		$errors[] = ['catTitle' => 'Введите Название категории'];
+		$errors[] = ['title' => 'Введите название категории'];
 	} 
 
 	if ( empty($errors)) {

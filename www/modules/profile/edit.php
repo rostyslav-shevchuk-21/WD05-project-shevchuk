@@ -23,7 +23,16 @@ if ( isset($_POST['profile-update']) ) {
 		}
 	}
 
-
+	if (isset($_FILES["avatar"]["name"]) && $_FILES["avatar"]["tmp_name"] != "" ) {
+		$fileName = $_FILES["avatar"]["name"];
+		
+		// Проверяем на коректность формата файла
+		if ( !preg_match("/\.(gif|jpg|jpeg|png)$/i", $fileName) ) {
+			
+			// Если формат не верный выводим ошибки
+			$errors[]  = [ 'title' => 'Неверный формат файла', 'desc' => '<p>Файл изображения должен быть в формате gif, jpg, jpeg, или png.</p>', ];
+		} 
+	}
 
 
 	if ( empty($errors) ) {
@@ -53,10 +62,6 @@ if ( isset($_POST['profile-update']) ) {
 
 		if ( $fileSize > 4194304 ) {
 			$errors[] = ['title' => 'Файл изображения не должен быть более 4 Mb' ];
-		}
-
-		if ( !preg_match("/\.(gif|jpg|jpeg|png)$/i", $fileName) ) {
-			$errors[]  = [ 'title' => 'Неверный формат файла', 'desc' => '<p>Файл изображения должен быть в формате gif, jpg, jpeg, или png.</p>', ];
 		}
 
 		if ( $fileErrorMsg == 1 ) {

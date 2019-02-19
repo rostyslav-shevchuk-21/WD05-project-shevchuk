@@ -15,8 +15,20 @@ if ( isset($_POST['postNew']) ) {
 	}
 
 	if ( trim($_POST['postText']) == '' ) {
-		$errors[] = ['text' => 'Введите текст поста' ];
+		$errors[] = ['title' => 'Введите текст поста' ];
 	}
+
+	if (isset($_FILES["postImg"]["name"]) && $_FILES["postImg"]["tmp_name"] != "" ) {
+		$fileName = $_FILES["postImg"]["name"];
+		
+		// Проверяем на коректность формата файла
+		if ( !preg_match("/\.(gif|jpg|jpeg|png)$/i", $fileName) ) {
+			
+			// Если формат не верный выводим ошибки
+			$errors[]  = [ 'title' => 'Неверный формат файла', 'desc' => '<p>Файл изображения должен быть в формате gif, jpg, jpeg, или png.</p>', ];
+		} 
+	}
+
 
 	if ( empty($errors)) {
 		$post = R::dispense('posts');
@@ -37,6 +49,8 @@ if ( isset($_POST['postNew']) ) {
 			$kaboom = explode(".", $fileName);
 			$fileExt = end($kaboom);
 		
+
+			// Если формат файла корректный тогда обрабатываем картинку и записываем в базу данных
 			// Check file propertties on different conditions
 			list($width, $height) = getimagesize($fileTmpLoc);
 			if ($width < 10 || $height < 10 ) {
@@ -47,9 +61,6 @@ if ( isset($_POST['postNew']) ) {
 				$errors[] = ['title' => 'Файл изображения не должен быть более 4 Mb' ];
 			}
 
-			if ( !preg_match("/\.(gif|jpg|jpeg|png)$/i", $fileName) ) {
-				$errors[]  = [ 'title' => 'Неверный формат файла', 'desc' => '<p>Файл изображения должен быть в формате gif, jpg, jpeg, или png.</p>', ];
-			}
 
 			if ( $fileErrorMsg == 1 ) {
 				$errors[] = ['title' => 'При загрузке изображения произошла ошибка. Повторите попытку' ];
@@ -81,7 +92,7 @@ if ( isset($_POST['postNew']) ) {
 			$img = createThumbnailCrop($target_file, $wmax, $hmax);
 			$img->writeImage($resized_file);
 			$post->postImgSmall = "320-" . $db_file_name;
-
+			
 		}
 
 		R::store($post);

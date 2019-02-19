@@ -19,7 +19,17 @@
 					<div class="profile-user-description"><span>Имя и фамилия</span>
 						<div class="profile-user-description__title"><?=$currentUser->name?> <?=$currentUser->surname?></div><span>Email</span>
 						<div class="profile-user-description__email"><?=$currentUser->email?></div><span>Страна, Город</span>
-						<div class="profile-user-description__city"><?=$currentUser->country?>, <?=$currentUser->city?></div>
+						<div class="profile-user-description__city">
+							
+							<?php if ( $currentUser->country && $currentUser->city) { ?>
+								<?=$currentUser->country?>, <?=$currentUser->city?>
+							<?php } elseif ($currentUser->country ) { ?>
+								<?=$currentUser->country?>
+							<?php } else { ?>
+								<?=$currentUser->city?>
+							<?php } ?>
+				
+							</div>
 					</div>
 				</div>
 				<h2 class="title-2">Комментарии пользователя</h2>

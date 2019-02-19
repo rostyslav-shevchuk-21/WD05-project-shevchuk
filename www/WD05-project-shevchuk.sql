@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Час створення: Лют 14 2019 р., 01:14
+-- Час створення: Лют 20 2019 р., 00:14
 -- Версія сервера: 5.7.16
 -- Версія PHP: 7.1.0
 
@@ -79,7 +79,10 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `post_id`, `user_id`, `text`, `date_time`) VALUES
-(1, 34, 1, 'Первый комментарий на сайте', '2019-02-14 01:13:30');
+(1, 34, 1, 'Первый комментарий на сайте', '2019-02-14 01:13:30'),
+(2, 34, 9, 'Комментарий от второго пользователя', '2019-02-16 17:17:02'),
+(3, 28, 9, 'Новый комментарий о гаджетах', '2019-02-18 22:27:37'),
+(4, 27, 9, 'Попытка переписать эту логику с нуля породит много багов и проблем.', '2019-02-18 22:31:45');
 
 -- --------------------------------------------------------
 
@@ -139,7 +142,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `email`, `password`, `role`, `name`, `surname`, `country`, `city`, `avatar`, `avatar_small`, `recovery_code`, `recovery_code_times`) VALUES
-(1, 'info@mail.com', '$2y$10$E9T7xGg9LnRitnwBLIWd5uUtjxQCS98ABO8FYvhqjtnUwvVU3Fj6i', 'admin', 'Ростислав', 'Шевчук', 'Украина', 'Винница', '773074933006.jpg', '48-773074933006.jpg', '36hsVo1eXfW0UTY', 0),
+(1, 'info@mail.com', '$2y$10$E9T7xGg9LnRitnwBLIWd5uUtjxQCS98ABO8FYvhqjtnUwvVU3Fj6i', 'admin', 'Ростислав', 'Шевчук', 'Украина', 'Винница', '601690459570.jpg', '48-601690459570.jpg', '36hsVo1eXfW0UTY', 0),
 (9, 'info2@mail.com', '$2y$10$s.J5YPJm9HV.U66qH6mHyeEwNlf7djXMjr2vkZm6Z.5aW/x4J6gwm', 'user', 'Емельян', 'Казаков', 'Россия', 'Казань', '602716185688.jpg', '48-602716185688.jpg', NULL, NULL),
 (15, 'info3@mail.com', '$2y$10$fmDlZBIMEmj8EAo90IU8OOv0AsRiNvJCWWaABrQPxFmGF1.L49lb.', 'user', 'Василий ', 'Давыдов', 'Украина', 'Киев', '180576080439.jpg', '48-180576080439.jpg', NULL, NULL);
 
@@ -198,17 +201,17 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT для таблиці `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT для таблиці `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT для таблиці `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
